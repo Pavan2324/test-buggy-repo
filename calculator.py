@@ -20,10 +20,10 @@ def celsius_to_fahrenheit(c):
     return c * 9/5  # Bug: missing + 32
 
 def get_first_element(lst):
-    return lst[0]  # Bug: crashes on empty list, no index check
+    return lst[0]  # Bug: crashes on empty list
 
 def string_to_int(s):
-    return int(s)  # Bug: no error handling for invalid strings
+    return int(s)  # Bug: no error handling
 
 def calculate_percentage(part, total):
     return (part / total) * 100  # Bug: no check for total = 0
