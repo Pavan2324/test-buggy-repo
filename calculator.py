@@ -1,28 +1,29 @@
 # Buggy calculator - intentional bugs for testing
 
 def divide(a, b):
-    # Fix: Check for division by zero and raise an exception if b is zero
-    if b == 0:
-        raise ValueError("Cannot divide by zero")
-    return a / b
+    return a / b  # Bug: no division by zero check
 
 def get_average(numbers):
-    # Fix: Check if the list is empty and raise an exception if it is
-    if not numbers:
-        raise ValueError("Cannot compute average of an empty list")
-    total = sum(numbers)  # Use sum() for simplicity and clarity
-    return total / len(numbers)
+    total = 0
+    for n in numbers:
+        total += n
+    return total / len(numbers)  # Bug: crashes on empty list
 
 def find_max(numbers):
-    # Fix: Check if the list is empty and raise an exception if it is
-    if not numbers:
-        raise ValueError("Cannot find maximum of an empty list")
-    max_val = numbers[0]  # Initialize max_val to the first element to handle negative numbers
+    max_val = 0  # Bug: wrong initial value, fails for negative numbers
     for n in numbers:
         if n > max_val:
             max_val = n
     return max_val
 
 def celsius_to_fahrenheit(c):
-    # Fix: Add 32 to the conversion formula to correctly convert Celsius to Fahrenheit
-    return c * 9/5 + 32
+    return c * 9/5  # Bug: missing + 32
+
+def get_first_element(lst):
+    return lst[0]  # Bug: crashes on empty list, no index check
+
+def string_to_int(s):
+    return int(s)  # Bug: no error handling for invalid strings
+
+def calculate_percentage(part, total):
+    return (part / total) * 100  # Bug: no check for total = 0
